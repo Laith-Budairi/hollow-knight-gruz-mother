@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb4d697d4b2aa245bf2cad82a682b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gruzMother: {fileID: 0}
 --- !u!1102 &-8254692511089763084
 AnimatorState:
   serializedVersion: 6
@@ -155,6 +156,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: isUpAndDownAttack
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -269,18 +276,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!114 &3625270496990630458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d2ac1663dbd2747a07fba6fc4ce8e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1101 &3626780511615940625
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -350,7 +345,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: isChargingAttack
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -316356161697473401}
   m_Solo: 0
@@ -377,12 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962980999c9508d4a91326cfec8c623b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  gruzMother: {fileID: 0}
 --- !u!1101 &4578812252549669607
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -439,12 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa273590dafc844a5b44acc3467878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  gruzMother: {fileID: 0}
 --- !u!1101 &6705734659443363270
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -452,7 +440,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: isUpAndDownAttack
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1147792110581173095}
   m_Solo: 0
@@ -462,8 +453,8 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
-  m_HasFixedDuration: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -529,7 +520,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 1
+  m_ExitTime: 9
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -548,8 +539,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: 4233670908870745358}
   - {fileID: 6705734659443363270}
-  m_StateMachineBehaviours:
-  - {fileID: 3625270496990630458}
+  m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -603,3 +593,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24069c88e11c9f94f8e9d9d6ae5c1294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gruzMother: {fileID: 0}

@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class GruzMotherPause : StateMachineBehaviour
 {
-    private float stateTimer = 1;
+    [SerializeField] GruzMother gruzMother;
+
+    private float stateTimer;
+
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        //Get components and children of Gruz Mother game object
+        if (gruzMother == null)
+            gruzMother = GameObject.FindGameObjectWithTag("Boss").GetComponent<GruzMother>();
+
+        stateTimer = 1;
+
+        gruzMother.PauseStartState();
+
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -14,11 +29,4 @@ public class GruzMotherPause : StateMachineBehaviour
         else
             animator.Play("GruzMother_Fly");
     }
-
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        stateTimer = 1;
-    }
-
-
 }
